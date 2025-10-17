@@ -1,6 +1,6 @@
 import 'package:camping_pro/helpers/hex_colors.dart';
+import 'package:camping_pro/modules/camp_detail_screen.dart';
 import 'package:flutter/material.dart';
-import 'gallery_screen.dart';
 
 void main() {
   runApp(const CampingApp());
@@ -451,7 +451,7 @@ class HomeContent extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => GalleryScreen(
+            builder: (context) => CampDetailScreen(
               imageUrl: date != '10' ? imageUrl : 'assets/images/banner1.png',
               date: date,
               month: month,
