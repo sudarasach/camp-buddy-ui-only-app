@@ -21,7 +21,8 @@ class GalleryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
+      body: 
+      Padding(
         padding: const EdgeInsets.all(8.0),
         child: MasonryGridView.count(
           crossAxisCount: 2,
@@ -35,9 +36,9 @@ class GalleryScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => ImagePreviewScreen(
-                      imageUrl: imageUrl,
-                      tag: 'image_$index',
+                    builder: (_) => ImagePreviewSlider(
+                      imageUrls: imageUrls,
+                      initialIndex: index,
                     ),
                   ),
                 );
@@ -61,30 +62,81 @@ class GalleryScreen extends StatelessWidget {
 }
 
 
-class ImagePreviewScreen extends StatelessWidget {
-  final String imageUrl;
-  final String tag;
+class ImagePreviewSlider extends StatefulWidget {
+  final List<String> imageUrls;
+  final int initialIndex;
 
-  const ImagePreviewScreen({
+  const ImagePreviewSlider({
     super.key,
-    required this.imageUrl,
-    required this.tag,
+    required this.imageUrls,
+    required this.initialIndex,
   });
+
+  @override
+  State<ImagePreviewSlider> createState() => _ImagePreviewSliderState();
+}
+
+class _ImagePreviewSliderState extends State<ImagePreviewSlider> {
+  late PageController _pageController;
+  late int _currentIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentIndex = widget.initialIndex;
+    _pageController = PageController(initialPage: _currentIndex);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: GestureDetector(
-        onTap: () => Navigator.pop(context),
-        child: Center(
-          child: Hero(
-            tag: tag,
-            child: InteractiveViewer(
-              child: Image.asset(imageUrl),
+      body: Stack(
+        children: [
+          PageView.builder(
+            controller: _pageController,
+            itemCount: widget.imageUrls.length,
+            onPageChanged: (index) {
+              setState(() => _currentIndex = index);
+            },
+            itemBuilder: (context, index) {
+              final imageUrl = widget.imageUrls[index];
+              return GestureDetector(
+                onTap: () => Navigator.pop(context),
+                child: Center(
+                  child: Hero(
+                    tag: 'image_$index',
+                    child: InteractiveViewer(
+                      child: Image.asset(
+                        imageUrl,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+          Positioned(
+            top: 40,
+            right: 10,
+            child: IconButton(
+              icon: const Icon(Icons.close, color: Colors.white, size: 20),
+              onPressed: () => Navigator.pop(context),
             ),
           ),
-        ),
+          Positioned(
+            bottom: 30,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: Text(
+                '${_currentIndex + 1} / ${widget.imageUrls.length}',
+                style: const TextStyle(color: Colors.white70, fontSize: 16),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
