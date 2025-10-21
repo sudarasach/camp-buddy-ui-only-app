@@ -1,5 +1,6 @@
 import 'package:camping_pro/helpers/hex_colors.dart';
 import 'package:camping_pro/modules/camp_detail_screen.dart';
+import 'package:camping_pro/modules/chat_list_screen.dart';
 import 'package:camping_pro/modules/gallery_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
     HomeContent(),
     GalleryScreen(),
     HomeContent(),
-    HomeContent(),
+    ChatListScreen(),
     HomeContent(),
   ];
 
