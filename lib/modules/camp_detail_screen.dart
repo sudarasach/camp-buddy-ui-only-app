@@ -2,20 +2,27 @@ import 'package:camping_pro/helpers/hex_colors.dart';
 import 'package:flutter/material.dart';
 
 class CampDetailScreen extends StatelessWidget {
-  
   final String imageUrl;
   final String date;
   final String month;
   final String title;
   final String subTitle;
-  
-   const CampDetailScreen({
+  final String desciption;
+  final String period;
+  final String age;
+  final bool isMealProvided;
+
+  const CampDetailScreen({
     super.key,
     required this.imageUrl,
     required this.date,
     required this.month,
     required this.title,
     required this.subTitle,
+    required this.desciption,
+    required this.period,
+    required this.age,
+    required this.isMealProvided,
   });
 
   @override
@@ -26,11 +33,7 @@ class CampDetailScreen extends StatelessWidget {
           Container(
             color: Colors.amber,
             // height: 270,
-            child: Image.asset(
-              imageUrl,
-              fit: BoxFit.cover,
-              height: 290,
-            ),
+            child: Image.asset(imageUrl, fit: BoxFit.cover, height: 290),
           ),
           SafeArea(
             child: SingleChildScrollView(
@@ -41,7 +44,7 @@ class CampDetailScreen extends StatelessWidget {
                     child: Row(
                       children: [
                         InkWell(
-                          onTap: (){
+                          onTap: () {
                             Navigator.pop(context);
                           },
                           child: Container(
@@ -283,7 +286,7 @@ class CampDetailScreen extends StatelessWidget {
                                   ),
                                   borderRadius: BorderRadius.circular(28),
                                 ),
-                                child:  Icon(
+                                child: Icon(
                                   Icons.calendar_month,
                                   color: HexColor("#678032"),
                                   size: 24,
