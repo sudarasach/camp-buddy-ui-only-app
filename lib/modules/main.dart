@@ -161,13 +161,17 @@ class _HomeScreenState extends State<HomeScreen> {
 class HomeContent extends StatelessWidget {
   HomeContent({super.key});
 
-  final List<Map<String, String>> recommendedData = [
+  final List<Map<String, dynamic>> recommendedData = [
     {
       "img": "assets/images/frame3.png",
       "date": "10",
       "month": "April",
       "title": "Camp Granite Lake",
       "sub": "Golden, Colorado, US",
+      "desciption": "Explore Yellowstone and beyond! Get your feet wet and your hands dirty as you trek through wild landscapes, soak in natural hot springs, and reconnect with the great outdoors.",
+      "period": "3 Months",
+      "age": "9-12 years old",
+      "isMealProvided": true,
     },
     {
       "img": "assets/images/frame10.png",
@@ -175,6 +179,10 @@ class HomeContent extends StatelessWidget {
       "month": "May",
       "title": "Camp Big Sky Adventure",
       "sub": "Yellowstone National Park, Wyoming, US",
+       "desciption": "Wild Trail Adventure Camp is designed for thrill-seekers and nature lovers. Located near hiking routes, waterfalls, and mountain bike trails, this campsite blends adventure with comfort.",
+      "period": "4 Months",
+      "age": "12-16 years old",
+      "isMealProvided": false,
     },
     {
       "img": "assets/images/frame8.png",
@@ -182,6 +190,10 @@ class HomeContent extends StatelessWidget {
       "month": "June",
       "title": "Pine Creek Camp",
       "sub": "Houston, Texas",
+      "desciption": "Evergreen Eco Camp is built with sustainability in mind. The site uses natural materials, solar lighting, and eco-friendly facilities. Surrounded by forest and bird life.",
+      "period": "2 Months",
+      "age": "7-10 years old",
+      "isMealProvided": true,
     },
     {
       "img": "assets/images/frame9.png",
@@ -189,6 +201,10 @@ class HomeContent extends StatelessWidget {
       "month": "July",
       "title": "Horizon Campgrounds",
       "sub": "Emberwood, Meadowview, US",
+      "desciption": "Silver Peaks Glamping Resort combines nature with luxury. Enjoy fully furnished tents, private decks, hot water showers, and cozy bedding — all set against breathtaking mountain views.",
+      "period": "1 Months",
+      "age": "8-9 years old",
+      "isMealProvided": true,
     },
   ];
 
@@ -401,6 +417,10 @@ class HomeContent extends StatelessWidget {
                         item["month"]!,
                         item["title"]!,
                         item["sub"]!,
+                        item["desciption"]!,
+                        item["period"]!,
+                        item["age"]!,
+                        item["isMealProvided"]!,
                         context, // pass context properly
                       );
                     },
@@ -447,6 +467,10 @@ class HomeContent extends StatelessWidget {
     String month,
     String title,
     String subTitle,
+    String desciption,
+   String period,
+   String age,
+   bool isMealProvided,
     BuildContext context,
   ) {
     return InkWell(
@@ -460,6 +484,10 @@ class HomeContent extends StatelessWidget {
               month: month,
               title: title,
               subTitle: subTitle,
+              desciption: desciption,
+              period: period,
+              age: age,
+              isMealProvided: isMealProvided,
             ),
           ),
         );

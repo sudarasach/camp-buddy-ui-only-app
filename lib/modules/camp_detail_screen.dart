@@ -111,12 +111,12 @@ class CampDetailScreen extends StatelessWidget {
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Expanded(
+                               Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Camp Big Sky Adventure',
+                                      title,
                                       style: TextStyle(
                                         fontSize: 24,
                                         fontWeight: FontWeight.bold,
@@ -133,7 +133,7 @@ class CampDetailScreen extends StatelessWidget {
                                         ),
                                         SizedBox(width: 4),
                                         Text(
-                                          'Yellowstone National Park, Wyoming',
+                                          subTitle,
                                           style: TextStyle(
                                             fontSize: 14,
                                             color: Colors.grey,
@@ -153,10 +153,10 @@ class CampDetailScreen extends StatelessWidget {
                                   color: const Color(0xFFE8F5E8),
                                   borderRadius: BorderRadius.circular(12),
                                 ),
-                                child: const Column(
+                                child:  Column(
                                   children: [
                                     Text(
-                                      '28',
+                                      date,
                                       style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
@@ -164,7 +164,7 @@ class CampDetailScreen extends StatelessWidget {
                                       ),
                                     ),
                                     Text(
-                                      'June',
+                                      month,
                                       style: TextStyle(
                                         fontSize: 12,
                                         color: Color(0xFF4A7C59),
@@ -186,7 +186,7 @@ class CampDetailScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: 8),
                           RichText(
-                            text: const TextSpan(
+                            text:  TextSpan(
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Color(0xFF4A5568),
@@ -195,15 +195,15 @@ class CampDetailScreen extends StatelessWidget {
                               children: [
                                 TextSpan(
                                   text:
-                                      'Explore Yellowstone and beyond! Get your feet wet and your hands dirty, while you explore and ',
+                                      desciption,
                                 ),
-                                TextSpan(
-                                  text: 'read more...',
-                                  style: TextStyle(
-                                    color: Color(0xFFE53E3E),
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
+                                // TextSpan(
+                                //   text: 'read more...',
+                                //   style: TextStyle(
+                                //     color: Color(0xFFE53E3E),
+                                //     fontWeight: FontWeight.w500,
+                                //   ),
+                                // ),
                               ],
                             ),
                           ),
@@ -223,14 +223,14 @@ class CampDetailScreen extends StatelessWidget {
                                 child: _buildDetailItem(
                                   '📅',
                                   'Period',
-                                  '3 Months',
+                                  period,
                                 ),
                               ),
                               Expanded(
                                 child: _buildDetailItem(
                                   '👥',
                                   'Age Group',
-                                  '9-12 years old',
+                                  age,
                                 ),
                               ),
                             ],
@@ -249,7 +249,7 @@ class CampDetailScreen extends StatelessWidget {
                                 child: _buildDetailItem(
                                   '🍔',
                                   'Meals Provided',
-                                  'Yes',
+                                  isMealProvided ?'Yes' : 'No',
                                 ),
                               ),
                             ],
