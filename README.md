@@ -127,7 +127,7 @@ PRs are welcome! To contribute:
 
 **Sudarasa Sachindana (sudarasachXdev)** Flutter Developer | UI Enthusiast | Nature Lover 🌿
 
-📎 GitHub: [github.com/sudarasachxdev](https://github.com/sudarasachxdev)
+📎 GitHub: [github.com/sudarasach](https://github.com/sudarasach)
 
 📷 Instagram: [susachx.dev](https://www.instagram.com/susachx.dev/)
 
