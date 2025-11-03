@@ -56,7 +56,7 @@ camp-buddy-app/
 ### 1️⃣ Clone Repo
 
 ```bash
-git clone https://github.com/sudarasachxdev/camp-buddy-app.git
+git clone https://github.com/sudarasach/camp-buddy-ui-only-app.git
 cd camp-buddy-app
 ```
 
